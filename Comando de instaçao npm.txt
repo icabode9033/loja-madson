@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 npm install @reduxjs/toolkit@^2.6.1 @testing-library/dom@^10.4.0 @testing-library/jest-dom@^6.6.3 @testing-library/react@^16.3.0 @testing-library/user-event@^13.5.0 react@^19.1.0 react-dom@^19.1.0 react-hot-toast@^2.5.2 react-icons@^5.5.0 react-redux@^9.2.0 react-router-dom@^7.4.1 react-scripts@^5.0.1 web-vitals@^2.1.4
 
 
@@ -163,3 +164,170 @@ montar o fluxo completo com backend Node.js pagamento do mercado pago
 
 
 
+=======
+npm install @reduxjs/toolkit@^2.6.1 @testing-library/dom@^10.4.0 @testing-library/jest-dom@^6.6.3 @testing-library/react@^16.3.0 @testing-library/user-event@^13.5.0 react@^19.1.0 react-dom@^19.1.0 react-hot-toast@^2.5.2 react-icons@^5.5.0 react-redux@^9.2.0 react-router-dom@^7.4.1 react-scripts@^5.0.1 web-vitals@^2.1.4
+
+
+comando para a loja-madson 
+
+
+npm install react-scripts@5.0.1
+
+
+npm install -D tailwindcss postcss autoprefixer
+
+npm install -D tailwindcss postcss autoprefixer
+
+
+npm install -D @tailwindcss/postcss
+
+
+npm install -D @tailwindcss/postcss
+
+npm install tailwindcss@latest
+
+npm install -D @tailwindcss/postcss
+
+
+npm uninstall @tailwindcss/postcss
+
+instaçao da api mercado pago
+
+npm install @mercadopago/sdk-react
+
+
+npm init -y
+npm install express cors mercadopago
+
+npm install express cors dotenv mercadopago
+node index.js
+
+TEST-8629319223680952-050713-82c42531eac801a3fa7c4d4c533acee4-268077415  tokem do mercado pago
+chave publica do mercado pago  TEST-f8e9aaff-d494-4aa5-844d-5fd87240da11
+
+Compartilhe as credenciais com um desenvolvedor
+
+Se alguém está te ajudando a integrar os produtos do Mercado Pago, você pode compartilhar as credenciais da sua aplicação com essa pessoa de forma segura. Você pode desfazer essa ação excluindo a conta que recebeu o compartilhamento e renovando as credenciais.
+
+npm install
+npm start
+
+npm install mercadopago
+
+
+
+https://github.com/mercadopago/sdk-react
+
+
+
+https://www.mercadopago.com.br/developers/pt/docs/sdks-library/client-side/sdk-js-react-installation
+
+
+Resumo do que você precisa fazer para integrar o Mercado Pago com React:
+
+
+Instalação
+
+npm install @mercadopago/sdk-react
+
+
+2. Inicialização
+
+No seu componente principal (App.tsx, por exemplo), inicialize o Mercado Pago com sua chave pública:
+
+import { initMercadoPago } from '@mercadopago/sdk-react';
+
+initMercadoPago('SUA_PUBLIC_KEY');
+
+3. Usar um Brick de Pagamento
+
+Você pode escolher um dos componentes Bricks para coletar o pagamento. O mais comum é o CardPayment:
+
+import { CardPayment } from '@mercadopago/sdk-react';
+
+const Pagamento = () => {
+  return (
+    <CardPayment
+      initialization={{ amount: 100 }} // valor da compra
+      onSubmit={async (param) => {
+        // aqui você envia o param para seu back-end finalizar o pagamento
+        console.log(param);
+      }}
+    />
+  );
+};
+
+export default Pagamento;
+
+4. Criar preferência no backend
+
+Você vai precisar de um backend com a chave secreta para gerar a preferenceId que será usada nos componentes Payment ou Wallet, por exemplo.
+
+Exemplo de endpoint Node.js usando mercadopago:
+
+const mercadopago = require('mercadopago');
+
+mercadopago.configure({
+  access_token: 'SUA_ACCESS_TOKEN',
+});
+
+app.post('/create_preference', async (req, res) => {
+  const preference = {
+    items: [
+      {
+        title: 'Produto Exemplo',
+        unit_price: 100,
+        quantity: 1,
+      },
+    ],
+  };
+
+  const response = await mercadopago.preferences.create(preference);
+  res.json({ preferenceId: response.body.id });
+});
+
+ Dica: Qual componente devo usar?
+Componente	Para quê serve
+CardPayment	Checkout com cartão embutido no seu site/app
+Payment	Checkout mais completo (usa uma preferenceId)
+Wallet	Mostra botões de pagamento rápidos com carteira Mercado Pago
+StatusScreen	Tela de status após o pagamento (pago, pendente, recusado)
+
+montar o fluxo completo com backend Node.js pagamento do mercado pago
+
+
+/meu-projeto
+│── /backend
+│   ├── /routes
+│   │   ├── payment.js  # Rota para processar pagamentos
+│   │   ├── webhook.js  # Rota para receber notificações do Mercado Pago
+│   ├── /controllers
+│   │   ├── paymentController.js  # Lógica de pagamento
+│   ├── /config
+│   │   ├── mercadoPago.js  # Configuração do Mercado Pago
+│   ├── /middlewares
+│   │   ├── errorHandler.js  # Middleware para tratamento de erros
+│   ├── server.js  # Arquivo principal do servidor
+│   ├── .env  # Credenciais do Mercado Pago
+│   ├── package.json  # Dependências do backend
+│
+│── /frontend
+│   ├── /src
+│   │   ├── /components
+│   │   │   ├── PaymentForm.js  # Formulário de pagamento
+│   │   │   ├── SuccessScreen.js  # Tela de sucesso
+│   │   ├── /services
+│   │   │   ├── api.js  # Comunicação com o backend
+│   │   ├── App.js  # Componente principal
+│   │   ├── index.js  # Entrada do React
+│   ├── public
+│   │   ├── index.html  # Página principal
+│   ├── package.json  # Dependências do frontend
+│
+│── README.md  # Documentação do projeto
+
+
+
+
+
+>>>>>>> 60d29aad67fd22ab2e48cc46a876b88f2037233b
